@@ -3,413 +3,728 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Luis Guillermo Pinilla Rodríguez — Engineering, energy transition, sustainability, climate change and air quality." />
-  <title>Luis Guillermo Pinilla Rodríguez</title>
+  <meta
+    name="description"
+    content="Luis Guillermo Pinilla Rodríguez — Mechanical engineer working across energy transition, climate action, sustainability and applied engineering."
+  />
+  <title>STVDIØ LUISGUI — Engineering, Energy & Climate</title>
 
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f5f7fa;
-      --surface-2: #eef3f7;
-      --text: #102030;
-      --muted: #5f6f7d;
-      --blue: #0f4c81;
-      --blue-dark: #082f52;
-      --green: #6b9f33;
-      --orange: #e36c2d;
-      --line: #dce4ea;
-      --max: 1180px;
-      --radius: 22px;
+      --concrete: #d8d8d2;
+      --concrete-light: #e8e8e3;
+      --paper: #f1f0ea;
+      --ink: #171717;
+      --muted: #5b5b57;
+      --line: #1b1b1b;
+      --red: #e13a2d;
+      --blue: #1e4e8c;
+      --yellow: #e4b72f;
+      --max: 1240px;
+      --gutter: clamp(18px, 4vw, 54px);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(0,0,0,.024) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,.024) 1px, transparent 1px),
+        var(--concrete);
+      background-size: 28px 28px;
+      font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.5;
     }
 
-    img { max-width: 100%; }
+    img {
+      max-width: 100%;
+    }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+    }
 
     .wrap {
-      width: min(var(--max), calc(100% - 40px));
+      width: min(var(--max), calc(100% - (2 * var(--gutter))));
       margin: 0 auto;
     }
 
+    /* Shorter banner. The original image is cropped using object-fit. */
     .top-banner {
-      width: 100%;
-      height: clamp(220px, 34vw, 460px);
+      position: relative;
+      height: clamp(128px, 17vw, 220px);
       overflow: hidden;
-      background: var(--blue-dark);
+      background: #202020;
+      border-bottom: 2px solid var(--line);
     }
 
     .top-banner img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
       display: block;
+      object-fit: cover;
+      object-position: center 46%;
+      filter: grayscale(28%) contrast(1.06) brightness(.76);
+      transform: scale(1.015);
+    }
+
+    .top-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(225,58,45,.27) 0 15%, transparent 15% 73%, rgba(30,78,140,.25) 73% 100%);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .banner-label {
+      position: absolute;
+      left: var(--gutter);
+      bottom: 14px;
+      z-index: 2;
+      padding: 7px 10px 6px;
+      color: var(--paper);
+      background: rgba(20,20,20,.84);
+      border: 1px solid rgba(255,255,255,.22);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      background: rgba(255,255,255,.94);
+      z-index: 50;
+      background: rgba(216,216,210,.93);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 2px solid var(--line);
     }
 
     nav {
-      min-height: 72px;
+      min-height: 66px;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: space-between;
       gap: 24px;
     }
 
     .brand {
-      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      padding-right: 24px;
+      border-right: 2px solid var(--line);
+      color: var(--ink);
       text-decoration: none;
-      color: var(--blue-dark);
-      letter-spacing: .2px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .brand .slash {
+      color: var(--red);
+      padding: 0 .24em;
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: .95rem;
-      font-weight: 700;
-    }
-
-    .nav-links a:hover { color: var(--blue); }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      align-items: center;
-      gap: 64px;
-      padding: 78px 0;
-    }
-
-    .eyebrow {
-      color: var(--orange);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: .82rem;
-      font-weight: 800;
-    }
-
-    h1 {
-      margin: 14px 0 24px;
-      max-width: 760px;
-      font-size: clamp(2.8rem, 6.5vw, 5.7rem);
-      line-height: .98;
-      letter-spacing: -3px;
-      color: var(--blue-dark);
-    }
-
-    .lead {
-      max-width: 720px;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.28rem);
-    }
-
-    .hero-actions,
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .button,
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 800;
-      border: 1px solid var(--line);
-      transition: transform .2s ease, border-color .2s ease;
-    }
-
-    .button:hover,
-    .social-link:hover {
-      transform: translateY(-2px);
-      border-color: var(--blue);
-    }
-
-    .button.primary {
-      color: white;
-      background: var(--blue);
-      border-color: var(--blue);
-    }
-
-    .button.secondary {
-      color: var(--blue-dark);
-      background: white;
-    }
-
-    .portrait {
-      position: relative;
-      max-width: 450px;
+      align-items: stretch;
       margin-left: auto;
     }
 
-    .portrait::before {
-      content: "";
-      position: absolute;
-      inset: -16px 16px 16px -16px;
-      border: 3px solid var(--green);
-      border-radius: 32px;
-      z-index: -1;
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 18px;
+      border-left: 1px solid rgba(0,0,0,.38);
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
     }
 
-    .portrait img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 32px;
-      box-shadow: 0 18px 48px rgba(18,42,61,.16);
+    .nav-links a:hover {
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    main {
+      overflow: hidden;
     }
 
     section {
-      padding: 82px 0;
-      border-top: 1px solid var(--line);
+      border-bottom: 2px solid var(--line);
     }
 
-    section.alt { background: var(--surface); }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      min-height: 660px;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(52px, 8vw, 108px) var(--gutter);
+      border-right: 2px solid var(--line);
+    }
+
+    .kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 26px;
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 48px;
+      height: 10px;
+      background: var(--red);
+      border: 1px solid var(--line);
+    }
+
+    h1 {
+      max-width: 880px;
+      margin: 0;
+      font-size: clamp(3.2rem, 7.7vw, 7.9rem);
+      line-height: .86;
+      letter-spacing: -.07em;
+      text-transform: uppercase;
+    }
+
+    h1 .outline {
+      color: transparent;
+      -webkit-text-stroke: 1.7px var(--ink);
+      text-stroke: 1.7px var(--ink);
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 34px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 2px solid var(--line);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .button + .button {
+      border-left: 0;
+    }
+
+    .button.primary {
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    .button.secondary {
+      background: transparent;
+    }
+
+    .button:hover {
+      color: var(--ink);
+      background: var(--yellow);
+    }
+
+    .hero-portrait {
+      position: relative;
+      min-height: 100%;
+      background: var(--paper);
+    }
+
+    .hero-portrait::before {
+      content: "01";
+      position: absolute;
+      top: 20px;
+      left: 22px;
+      z-index: 3;
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      min-height: 660px;
+      display: block;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: grayscale(100%) contrast(1.05);
+    }
+
+    .hero-portrait::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 34%;
+      height: 26%;
+      background: rgba(30,78,140,.72);
+      border-top: 2px solid var(--line);
+      border-left: 2px solid var(--line);
+      mix-blend-mode: multiply;
+    }
+
+    .manifesto {
+      display: grid;
+      grid-template-columns: .35fr 1.65fr;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .manifesto-index {
+      padding: 32px var(--gutter);
+      border-right: 1px solid rgba(255,255,255,.3);
+      color: var(--yellow);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .manifesto-copy {
+      padding: clamp(48px, 7vw, 88px) var(--gutter);
+    }
+
+    .manifesto-copy p {
+      max-width: 1060px;
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+
+    .manifesto-copy strong {
+      color: var(--yellow);
+      font-weight: 900;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: .37fr 1.63fr;
+    }
+
+    .section-label {
+      padding: 34px var(--gutter);
+      border-right: 2px solid var(--line);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .section-content {
+      padding: clamp(54px, 7vw, 94px) var(--gutter);
+      background: var(--concrete-light);
+    }
 
     h2 {
-      margin: 0 0 18px;
-      color: var(--blue-dark);
-      font-size: clamp(2rem, 5vw, 3.25rem);
-      letter-spacing: -1.5px;
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(2.5rem, 5.6vw, 5.8rem);
+      line-height: .91;
+      letter-spacing: -.065em;
+      text-transform: uppercase;
     }
 
     .section-intro {
-      max-width: 800px;
+      max-width: 780px;
+      margin: 26px 0 0;
       color: var(--muted);
-      margin-bottom: 36px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.05rem;
     }
 
-    .statement {
-      max-width: 940px;
-      margin: 0;
-      font-size: clamp(1.55rem, 3vw, 2.55rem);
-      line-height: 1.25;
-      color: var(--blue-dark);
-    }
-
-    .statement strong { color: var(--orange); }
-
-    .grid {
+    .areas {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 50px;
+      border-top: 2px solid var(--line);
+      border-left: 2px solid var(--line);
     }
 
-    .card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: 0 10px 28px rgba(14,45,68,.06);
+    .area {
+      min-height: 230px;
+      padding: 24px;
+      border-right: 2px solid var(--line);
+      border-bottom: 2px solid var(--line);
+      background: var(--paper);
     }
 
-    .card h3 {
-      margin: 0 0 10px;
-      color: var(--blue-dark);
+    .area:nth-child(3n+1) .area-number { color: var(--red); }
+    .area:nth-child(3n+2) .area-number { color: var(--blue); }
+    .area:nth-child(3n+3) .area-number { color: #8a6812; }
+
+    .area-number {
+      display: block;
+      margin-bottom: 34px;
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .15em;
     }
 
-    .card p {
+    .area h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.35rem, 2vw, 1.8rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .area p {
       margin: 0;
       color: var(--muted);
-    }
-
-    .card .tag {
-      display: inline-block;
-      margin-bottom: 14px;
-      color: var(--green);
-      font-size: .78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .96rem;
     }
 
     .questions {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px 28px;
-      margin-top: 34px;
+      margin-top: 46px;
+      border-top: 2px solid var(--line);
     }
 
     .question {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 1.08rem;
-      color: var(--blue-dark);
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      align-items: start;
+      padding: 22px 0;
+      border-bottom: 2px solid var(--line);
+      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      font-weight: 800;
     }
 
-    .blog-grid,
-    .news-grid {
+    .question span {
+      color: var(--red);
+      font-size: .76rem;
+      letter-spacing: .12em;
+    }
+
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      margin-top: 48px;
+      border-top: 2px solid var(--line);
+      border-left: 2px solid var(--line);
     }
 
-    .post-card,
-    .news-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    .card {
+      display: flex;
+      min-height: 360px;
+      flex-direction: column;
+      border-right: 2px solid var(--line);
+      border-bottom: 2px solid var(--line);
+      background: var(--paper);
+    }
+
+    .card-visual {
+      position: relative;
+      min-height: 145px;
       overflow: hidden;
-      box-shadow: 0 10px 28px rgba(14,45,68,.06);
+      border-bottom: 2px solid var(--line);
+      background: var(--ink);
     }
 
-    .post-card .visual,
-    .news-card .visual {
-      min-height: 160px;
-      background:
-        linear-gradient(135deg, rgba(15,76,129,.95), rgba(107,159,51,.75)),
-        url("banner.png") center/cover;
+    .card-visual::before,
+    .card-visual::after {
+      content: "";
+      position: absolute;
     }
 
-    .post-card:nth-child(2) .visual {
-      background:
-        linear-gradient(135deg, rgba(227,108,45,.88), rgba(15,76,129,.8)),
-        url("banner.png") center/cover;
+    .card:nth-child(1) .card-visual::before {
+      inset: 0 50% 0 0;
+      background: var(--red);
     }
 
-    .post-card:nth-child(3) .visual {
-      background:
-        linear-gradient(135deg, rgba(8,47,82,.92), rgba(227,108,45,.78)),
-        url("banner.png") center/cover;
+    .card:nth-child(1) .card-visual::after {
+      width: 36%;
+      height: 36%;
+      right: 10%;
+      bottom: 12%;
+      border: 3px solid var(--paper);
+      border-radius: 50%;
     }
 
-    .post-content,
-    .news-content {
+    .card:nth-child(2) .card-visual::before {
+      width: 62%;
+      height: 100%;
+      right: 0;
+      background: var(--blue);
+      clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .card:nth-child(2) .card-visual::after {
+      width: 46%;
+      height: 10px;
+      left: 8%;
+      top: 48%;
+      background: var(--yellow);
+    }
+
+    .card:nth-child(3) .card-visual::before {
+      width: 44%;
+      height: 44%;
+      left: 12%;
+      top: 18%;
+      background: var(--yellow);
+      border: 2px solid var(--paper);
+    }
+
+    .card:nth-child(3) .card-visual::after {
+      width: 52%;
+      height: 52%;
+      right: 0;
+      bottom: 0;
+      background: var(--red);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    .card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
       padding: 24px;
     }
 
     .meta {
-      color: var(--orange);
-      font-size: .82rem;
-      font-weight: 800;
+      color: var(--red);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
-    .post-card h3,
-    .news-card h3 {
-      margin: 10px 0;
-      color: var(--blue-dark);
+    .card h3 {
+      margin: 14px 0 12px;
+      font-size: 1.45rem;
+      line-height: 1.04;
+      text-transform: uppercase;
     }
 
-    .post-card p,
-    .news-card p {
-      margin: 0 0 18px;
+    .card p {
+      margin: 0 0 24px;
       color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .95rem;
     }
 
     .text-link {
-      color: var(--blue);
-      font-weight: 800;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0,0,0,.35);
       text-decoration: none;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
     }
 
-    .contact {
-      background: var(--blue-dark);
-      color: white;
-      border-radius: 30px;
-      padding: 44px;
+    .text-link:hover {
+      color: var(--red);
     }
 
-    .contact h2 { color: white; }
+    .contact-section {
+      padding: 0;
+      background: var(--red);
+    }
 
-    .contact p {
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      min-height: 430px;
+    }
+
+    .contact-copy {
+      padding: clamp(54px, 8vw, 100px) var(--gutter);
+      border-right: 2px solid var(--line);
+    }
+
+    .contact-copy h2 {
+      color: var(--paper);
+    }
+
+    .contact-copy p {
       max-width: 760px;
-      color: rgba(255,255,255,.82);
-      font-size: 1.1rem;
+      margin: 28px 0 0;
+      color: rgba(255,255,255,.86);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .social-links {
+      display: grid;
+      align-content: stretch;
     }
 
     .social-link {
-      color: white;
-      border-color: rgba(255,255,255,.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      padding: 0 28px;
+      border-bottom: 2px solid var(--line);
+      color: var(--paper);
+      background: var(--ink);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .social-link:hover {
+      color: var(--ink);
+      background: var(--yellow);
     }
 
     footer {
-      padding: 34px 0 46px;
+      padding: 26px var(--gutter);
       color: var(--muted);
-      font-size: .92rem;
-      border-top: 1px solid var(--line);
+      background: var(--concrete);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
+    @media (max-width: 920px) {
+      .nav-links {
+        display: none;
+      }
+
+      .brand {
+        border-right: 0;
+      }
+
+      .hero,
+      .manifesto,
+      .section-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .manifesto-index,
+      .section-label,
+      .contact-copy {
+        border-right: 0;
+      }
+
+      .hero-copy,
+      .section-label,
+      .manifesto-index {
+        border-bottom: 2px solid var(--line);
+      }
 
       .hero {
-        grid-template-columns: 1fr;
-        gap: 44px;
+        min-height: auto;
       }
 
-      .portrait {
-        margin: 0;
-        max-width: 100%;
+      .hero-portrait img {
+        min-height: 520px;
+        max-height: 660px;
       }
 
-      .grid,
-      .blog-grid,
-      .news-grid,
-      .questions {
-        grid-template-columns: 1fr;
+      .areas,
+      .cards {
+        grid-template-columns: 1fr 1fr;
       }
-
-      h1 { letter-spacing: -2px; }
     }
 
-    @media (max-width: 560px) {
-      .wrap { width: min(100% - 24px, var(--max)); }
-      section { padding: 64px 0; }
-      .hero { padding: 58px 0; }
-      .contact { padding: 28px; }
+    @media (max-width: 620px) {
+      .top-banner {
+        height: 120px;
+      }
+
+      nav {
+        min-height: 58px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .hero-copy {
+        padding-top: 54px;
+        padding-bottom: 58px;
+      }
+
+      .areas,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .question {
+        grid-template-columns: 54px 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .button + .button {
+        border-top: 0;
+        border-left: 2px solid var(--line);
+      }
+
+      .hero-portrait img {
+        min-height: 440px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="top-banner" aria-label="Energy transition and climate change banner">
-    <img src="banner.png" alt="Global energy transition, climate action, clean energy and industrial emissions" />
+  <div class="top-banner" aria-label="Energy transition and climate action banner">
+    <img
+      src="banner.png"
+      alt="Energy transition, climate action, clean energy and industrial systems"
+    />
+    <div class="banner-label">Bogotá / Global</div>
   </div>
 
   <header>
     <nav class="wrap">
-      <a class="brand" href="#home">Luis G. Pinilla R.</a>
+      <a class="brand" href="#home">STVDIØ<span class="slash">/</span>LUISGUI</a>
 
       <div class="nav-links">
         <a href="#profile">Profile</a>
-        <a href="#areas">Areas</a>
+        <a href="#areas">Work</a>
         <a href="#approach">Approach</a>
-        <a href="#blog">Blog</a>
-        <a href="#news">News</a>
+        <a href="#blog">Journal</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -417,226 +732,194 @@
 
   <main>
     <section id="home">
-      <div class="wrap hero">
-        <div>
-          <div class="eyebrow">Engineering · Energy · Sustainability</div>
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="kicker">Mechanical engineering · Energy · Climate</div>
 
-          <h1>Question what does not work. Build what can be done better.</h1>
+          <h1>
+            Challenge what fails.<br />
+            <span class="outline">Build what works.</span>
+          </h1>
 
           <p class="lead">
-            I am Luis Guillermo Pinilla Rodríguez, a mechanical engineer focused on
-            energy transition, sustainability, climate change, air quality and project management.
+            I am Luis Guillermo Pinilla Rodríguez, a mechanical engineer working across
+            energy transition, climate action, sustainability, air quality and project delivery.
+            I take complex problems out of the slide deck and into the real world.
           </p>
 
           <div class="hero-actions">
-            <a class="button primary" href="#contact">Open to opportunities</a>
-            <a class="button secondary" href="#blog">Read my articles</a>
+            <a class="button primary" href="#contact">Start a conversation</a>
+            <a class="button secondary" href="#blog">Explore the work</a>
           </div>
         </div>
 
-        <div class="portrait">
-          <img src="profile.jpg" alt="Professional portrait of Luis Guillermo Pinilla Rodríguez" />
+        <div class="hero-portrait">
+          <img
+            src="profile.jpg"
+            alt="Portrait of Luis Guillermo Pinilla Rodríguez"
+          />
         </div>
       </div>
     </section>
 
-    <section id="profile" class="alt">
-      <div class="wrap">
-        <h2>Profile</h2>
-
-        <p class="section-intro">
-          My work sits at the intersection of engineering and environmental, energy
-          and institutional challenges. I am interested in turning broad goals into
-          technical decisions, viable projects and measurable results.
-        </p>
-
-        <p class="statement">
-          Energy transition does not end when a technology is selected.
-          The real challenge is creating the conditions for it to be
-          <strong>implemented, operated, maintained and able to fulfil its purpose.</strong>
-        </p>
+    <section id="profile">
+      <div class="manifesto">
+        <div class="manifesto-index">00 / Manifesto</div>
+        <div class="manifesto-copy">
+          <p>
+            Ambition is easy. Implementation is where ideas face
+            <strong>infrastructure, budgets, skills, institutions and reality.</strong>
+            That is where I work.
+          </p>
+        </div>
       </div>
     </section>
 
     <section id="areas">
-      <div class="wrap">
-        <h2>Areas of work</h2>
+      <div class="section-grid">
+        <div class="section-label">01 / Field of work</div>
 
-        <p class="section-intro">
-          Experience developed across energy systems, climate action, sustainability,
-          air quality and technical coordination.
-        </p>
+        <div class="section-content">
+          <h2>Where engineering meets transition.</h2>
 
-        <div class="grid">
-          <article class="card">
-            <span class="tag">Energy</span>
-            <h3>Energy transition</h3>
-            <p>Technical analysis, implementation conditions, efficiency, infrastructure and life-cycle considerations.</p>
-          </article>
+          <p class="section-intro">
+            Technical work at the intersection of systems, policy, implementation
+            and measurable results.
+          </p>
 
-          <article class="card">
-            <span class="tag">Climate</span>
-            <h3>Climate change</h3>
-            <p>Strategies, climate commitments, emissions reduction and coordination across agendas.</p>
-          </article>
+          <div class="areas">
+            <article class="area">
+              <span class="area-number">01</span>
+              <h3>Energy transition</h3>
+              <p>Efficiency, infrastructure, implementation conditions, technology assessment and life-cycle thinking.</p>
+            </article>
 
-          <article class="card">
-            <span class="tag">Air</span>
-            <h3>Air quality</h3>
-            <p>Assessment of emissions, technologies, technical information and measures to reduce impacts.</p>
-          </article>
+            <article class="area">
+              <span class="area-number">02</span>
+              <h3>Climate action</h3>
+              <p>Strategies, mitigation, international processes, emissions reduction and cross-sector coordination.</p>
+            </article>
 
-          <article class="card">
-            <span class="tag">Systems</span>
-            <h3>Sustainability</h3>
-            <p>Integration of technical, environmental, social, economic and territorial criteria.</p>
-          </article>
+            <article class="area">
+              <span class="area-number">03</span>
+              <h3>Air quality</h3>
+              <p>Emission sources, technical measures, standards, monitoring and evidence-based decisions.</p>
+            </article>
 
-          <article class="card">
-            <span class="tag">Delivery</span>
-            <h3>Project management</h3>
-            <p>Coordination, monitoring, risk analysis, stakeholder engagement, capacity building and continuity.</p>
-          </article>
-
-          <article class="card">
-            <span class="tag">Engineering</span>
-            <h3>Applied engineering</h3>
-            <p>Technical questions, alternatives analysis and solutions adapted to real-world conditions.</p>
-          </article>
+            <article class="area">
+              <span class="area-number">04</span>
+              <h3>Project delivery</h3>
+              <p>Coordination, risk, stakeholder engagement, capacity building and continuity beyond the launch.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="approach" class="alt">
-      <div class="wrap">
-        <h2>The questions matter</h2>
+    <section id="approach">
+      <div class="section-grid">
+        <div class="section-label">02 / No easy answers</div>
 
-        <p class="section-intro">
-          A promising technology may still fail to deliver the expected results.
-          These are some of the questions that guide my work:
-        </p>
+        <div class="section-content">
+          <h2>Ask the questions others skip.</h2>
 
-        <div class="questions">
-          <div class="question">Will it work under the real conditions of the territory?</div>
-          <div class="question">Is the required infrastructure available?</div>
-          <div class="question">Who will be able to operate and maintain it?</div>
-          <div class="question">What will it cost throughout its full life cycle?</div>
-          <div class="question">How will it integrate with existing systems?</div>
-          <div class="question">How will we know whether it is truly fulfilling its purpose?</div>
+          <p class="section-intro">
+            A technology can look impressive and still fail. These are the questions
+            that keep ideas honest.
+          </p>
+
+          <div class="questions">
+            <div class="question"><span>Q01</span>Will it work under real operating conditions?</div>
+            <div class="question"><span>Q02</span>Is the required infrastructure actually available?</div>
+            <div class="question"><span>Q03</span>Who will operate, maintain and finance it?</div>
+            <div class="question"><span>Q04</span>What happens across the full life cycle?</div>
+            <div class="question"><span>Q05</span>How does it connect with the systems already in place?</div>
+            <div class="question"><span>Q06</span>What evidence will prove that it works?</div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="blog">
-      <div class="wrap">
-        <h2>Blog</h2>
+      <div class="section-grid">
+        <div class="section-label">03 / Journal</div>
 
-        <p class="section-intro">
-          Articles, reflections and technical perspectives on energy transition,
-          sustainability, climate change, air quality and engineering.
-        </p>
+        <div class="section-content">
+          <h2>Ideas under pressure.</h2>
 
-        <div class="blog-grid">
-          <article class="post-card">
-            <div class="visual"></div>
-            <div class="post-content">
-              <div class="meta">Energy transition</div>
-              <h3>Energy transition does not end when a technology is selected</h3>
-              <p>A reflection on implementation, operation, maintenance and real-world performance.</p>
-              <a class="text-link" href="#">Read article →</a>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <div class="visual"></div>
-            <div class="post-content">
-              <div class="meta">Engineering</div>
-              <h3>From ambitious goals to technical decisions</h3>
-              <p>Why infrastructure, skills, budgets and data matter as much as the technology itself.</p>
-              <a class="text-link" href="#">Coming soon →</a>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <div class="visual"></div>
-            <div class="post-content">
-              <div class="meta">Air quality</div>
-              <h3>What should we measure before claiming success?</h3>
-              <p>Notes on indicators, consistency, comparability and evidence-based decisions.</p>
-              <a class="text-link" href="#">Coming soon →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="news" class="alt">
-      <div class="wrap">
-        <h2>News & insights</h2>
-
-        <p class="section-intro">
-          A curated space for developments, reports and discussions that deserve attention.
-          These cards can later be updated manually or automated.
-        </p>
-
-        <div class="news-grid">
-          <article class="news-card">
-            <div class="news-content">
-              <div class="meta">Selected update</div>
-              <h3>Energy transition</h3>
-              <p>Add a short summary of a relevant report, policy development or technical debate.</p>
-              <a class="text-link" href="#">Add source →</a>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <div class="news-content">
-              <div class="meta">Selected update</div>
-              <h3>Climate action</h3>
-              <p>Use this space to explain why a recent development matters, not only to repeat the headline.</p>
-              <a class="text-link" href="#">Add source →</a>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <div class="news-content">
-              <div class="meta">Selected update</div>
-              <h3>Air quality</h3>
-              <p>Highlight a study, standard, project or technology and add your own technical perspective.</p>
-              <a class="text-link" href="#">Add source →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap">
-        <div class="contact">
-          <h2>Open to new opportunities</h2>
-
-          <p>
-            I am currently seeking professional opportunities and consultancies in
-            energy, energy transition, sustainability, climate change, air quality
-            and project management.
+          <p class="section-intro">
+            Articles, technical reflections and uncomfortable questions about energy,
+            engineering, climate and implementation.
           </p>
 
-          <div class="social-links">
-            <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-            <a class="social-link" href="https://github.com/Luxchin" target="_blank" rel="noopener">GitHub</a>
-            <a class="social-link" href="https://grabcad.com/" target="_blank" rel="noopener">GrabCAD</a>
-            <a class="social-link" href="mailto:your-email@example.com">Email</a>
+          <div class="cards">
+            <article class="card">
+              <div class="card-visual"></div>
+              <div class="card-body">
+                <div class="meta">Energy transition</div>
+                <h3>Technology selection is only the beginning</h3>
+                <p>Implementation, operation and maintenance decide whether transition becomes reality or remains a promise.</p>
+                <a class="text-link" href="#">Read article →</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-visual"></div>
+              <div class="card-body">
+                <div class="meta">Engineering</div>
+                <h3>From targets to technical decisions</h3>
+                <p>Why skills, infrastructure, budgets and evidence matter as much as ambition.</p>
+                <a class="text-link" href="#">Coming soon →</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-visual"></div>
+              <div class="card-body">
+                <div class="meta">Air quality</div>
+                <h3>Measure before claiming success</h3>
+                <p>Indicators, comparability and the difference between visible activity and meaningful impact.</p>
+                <a class="text-link" href="#">Coming soon →</a>
+              </div>
+            </article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-grid">
+        <div class="contact-copy">
+          <h2>Hard problem? Good.</h2>
+          <p>
+            Open to roles, consultancies and collaborations in energy transition,
+            climate action, sustainability, air quality and complex project delivery.
+          </p>
+        </div>
+
+        <div class="social-links">
+          <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+            LinkedIn <span>↗</span>
+          </a>
+          <a class="social-link" href="https://github.com/stvdio-luisgui" target="_blank" rel="noopener">
+            GitHub <span>↗</span>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener">
+            Instagram <span>↗</span>
+          </a>
+          <a class="social-link" href="https://grabcad.com/" target="_blank" rel="noopener">
+            GrabCAD <span>↗</span>
+          </a>
+          <a class="social-link" href="mailto:your-email@example.com">
+            Email <span>↗</span>
+          </a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">
-      © 2026 Luis Guillermo Pinilla Rodríguez.
-    </div>
+    © 2026 Luis Guillermo Pinilla Rodríguez / STVDIØ LUISGUI
   </footer>
 </body>
 </html>
