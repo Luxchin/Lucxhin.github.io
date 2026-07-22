@@ -527,6 +527,33 @@
         width: 100%;
       }
     }
+
+    /* Nordic identity update */
+    .brand { display:inline-flex; align-items:baseline; gap:10px; }
+    .brand-main { font-family:"Arial Black","Helvetica Neue",Arial,sans-serif; font-size:1.48rem; letter-spacing:.11em; line-height:1; }
+    .brand-sub { font-family:Georgia,"Times New Roman",serif; font-size:.76rem; font-style:italic; font-weight:400; letter-spacing:.18em; color:var(--steel); }
+    .nav-right { display:flex; align-items:center; gap:22px; }
+    .language-switch { display:flex; gap:8px; padding-left:18px; border-left:1px solid var(--line); }
+    .language-switch a { text-decoration:none; color:var(--muted); font-size:.72rem; font-weight:700; letter-spacing:.08em; }
+    .language-switch .active { color:var(--blue-dark); }
+    .news-lead { background:linear-gradient(180deg,rgba(255,255,255,.58),rgba(237,243,246,.72)); }
+    .news-lead-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:20px; margin-top:42px; }
+    .news-feature,.news-mini { background:rgba(255,255,255,.62); border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 12px 32px rgba(43,63,74,.045); }
+    .news-feature { overflow:hidden; }
+    .news-feature-image { height:255px; background:linear-gradient(135deg,rgba(240,246,249,.28),rgba(88,116,130,.34)),url("banner.png") center 48%/cover; border-bottom:1px solid var(--line); }
+    .news-feature-body,.news-mini { padding:26px; }
+    .news-feature h3 { margin:10px 0 12px; font-size:clamp(1.7rem,3vw,2.55rem); line-height:1.08; }
+    .news-mini-stack { display:grid; gap:18px; }
+    .news-mini h3 { margin:10px 0 8px; font-size:1.28rem; }
+    .news-feature p,.news-mini p { margin:0; color:var(--muted); }
+    .portrait img { filter:saturate(.9) contrast(.98) brightness(1.035); }
+    .site-preview { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:40px; }
+    .site-preview article { padding:28px; background:rgba(255,255,255,.56); border:1px solid var(--line); border-radius:var(--radius); }
+    .site-preview h3 { margin:10px 0 10px; font-size:1.45rem; }
+    .site-preview p { color:var(--muted); }
+    .page-hero { padding:82px 0 56px; }
+    @media (max-width:980px){ .news-lead-grid{grid-template-columns:1fr;} .nav-links{display:none;} }
+    @media (max-width:640px){ .brand-main{font-size:1.18rem;} .brand-sub{font-size:.64rem;} .language-switch{display:none;} .site-preview{grid-template-columns:1fr;} }
   </style>
 </head>
 
@@ -540,23 +567,55 @@
 
   <header>
     <nav class="wrap">
-      <a class="brand" href="#home">STVDIØ <span>LUISGUI</span></a>
+      <a class="brand" href="index.html"><span class="brand-main">STVDIØ</span><span class="brand-sub">LUISGUI</span></a>
 
-      <div class="nav-links">
-        <a href="#profile">Profile</a>
-        <a href="#areas">Work</a>
-        <a href="#approach">Approach</a>
-        <a href="#journal">Journal</a>
-        <a href="#contact">Contact</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html#profile">Profile</a>
+          <a href="index.html#areas">Work</a>
+          <a href="index.html#approach">Approach</a>
+          <a href="journal.html">Journal</a>
+          <a href="news.html">News</a>
+          <a href="hobbies.html">Hobbies</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="language-switch" aria-label="Language">
+          <a class="active" href="index.html">EN</a>
+          <a href="es/index.html">ES</a>
+          <a href="de/index.html">DE</a>
+        </div>
       </div>
     </nav>
   </header>
 
   <main>
-    <section id="home">
+
+    <section class="news-lead" id="latest">
+      <div class="wrap">
+        <div class="section-number">00 / Latest</div>
+        <h1>What deserves attention now.</h1>
+        <p class="section-intro">Selected developments in energy, climate and engineering — with context, not just headlines.</p>
+        <div class="news-lead-grid">
+          <article class="news-feature">
+            <div class="news-feature-image"></div>
+            <div class="news-feature-body">
+              <div class="meta">Featured update</div>
+              <h3>Energy transition moves when systems are ready, not when announcements are made.</h3>
+              <p>This space is prepared for your most relevant current story, report or technical reflection.</p>
+              <a class="text-link" href="news.html">View all news →</a>
+            </div>
+          </article>
+          <div class="news-mini-stack">
+            <article class="news-mini"><div class="meta">Climate</div><h3>From ambition to delivery</h3><p>Add a recent development and explain why it matters.</p></article>
+            <article class="news-mini"><div class="meta">Engineering</div><h3>What the headline leaves out</h3><p>Use this card for your own technical reading of a current issue.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="profile">
       <div class="wrap hero">
         <div>
-          <div class="eyebrow">Mechanical engineering · Energy · Climate</div>
+          <div class="eyebrow">Profile · Mechanical engineering · Energy · Climate</div>
 
           <h1>
             Challenge what fails.
@@ -584,17 +643,6 @@
       </div>
     </section>
 
-    <section id="profile" class="manifesto">
-      <div class="wrap manifesto-grid">
-        <div class="section-number">00 / Manifesto</div>
-
-        <p class="manifesto-text">
-          Ambition is easy. Implementation is where ideas face
-          <strong>infrastructure, budgets, skills, institutions and reality.</strong>
-          That is where I work.
-        </p>
-      </div>
-    </section>
 
     <section id="areas">
       <div class="wrap">
@@ -653,46 +701,13 @@
       </div>
     </section>
 
-    <section id="journal" class="journal">
+    <section class="journal">
       <div class="wrap">
-        <div class="section-number">03 / Journal</div>
-        <h2>Ideas under pressure.</h2>
-
-        <p class="section-intro">
-          Articles, technical reflections and difficult questions about energy,
-          engineering, climate and implementation.
-        </p>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card-visual"></div>
-            <div class="card-body">
-              <div class="meta">Energy transition</div>
-              <h3>Technology selection is only the beginning</h3>
-              <p>Implementation, operation and maintenance decide whether transition becomes reality or remains a promise.</p>
-              <a class="text-link" href="#">Read article →</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-visual"></div>
-            <div class="card-body">
-              <div class="meta">Engineering</div>
-              <h3>From targets to technical decisions</h3>
-              <p>Why skills, infrastructure, budgets and evidence matter as much as ambition.</p>
-              <a class="text-link" href="#">Coming soon →</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-visual"></div>
-            <div class="card-body">
-              <div class="meta">Air quality</div>
-              <h3>Measure before claiming success</h3>
-              <p>Indicators, comparability and the difference between visible activity and meaningful impact.</p>
-              <a class="text-link" href="#">Coming soon →</a>
-            </div>
-          </article>
+        <div class="section-number">03 / More</div>
+        <h2>Work, thought and life — clearly separated.</h2>
+        <div class="site-preview">
+          <article><div class="meta">Journal</div><h3>Articles and technical reflections</h3><p>A dedicated page for essays, long-form writing and analysis.</p><a class="text-link" href="journal.html">Open journal →</a></article>
+          <article><div class="meta">Hobbies</div><h3>The things that keep curiosity alive</h3><p>Woodworking, swimming, electronics, books, music and personal projects.</p><a class="text-link" href="hobbies.html">Open hobbies →</a></article>
         </div>
       </div>
     </section>
